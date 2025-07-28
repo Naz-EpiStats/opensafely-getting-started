@@ -3,7 +3,7 @@ from ehrql.tables.tpp import patients, practice_registrations
 
 dataset = create_dataset()
 
-index_date = "2020-03-31"
+index_date = "2020-01-01"
 
 has_registration = practice_registrations.for_patient_on(
     index_date
@@ -12,3 +12,4 @@ has_registration = practice_registrations.for_patient_on(
 dataset.define_population(has_registration)
 
 dataset.sex = patients.sex
+dataset.age = patients.age_on(index_date)
